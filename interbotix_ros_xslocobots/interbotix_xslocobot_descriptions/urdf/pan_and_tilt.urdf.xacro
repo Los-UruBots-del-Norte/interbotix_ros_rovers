@@ -204,8 +204,6 @@
       <self_collide>true</self_collide>
     </gazebo>
 
-    <!-- Adds a dummy link, libgazebo_ros_openni_kinect publishes from frame's z-axis -->
-    <!-- https://github.com/ros-simulation/gazebo_ros_pkgs/issues/243 -->
     <joint name="camera_depth_joint" type="fixed">
       <origin rpy="${-pi/2} 0 ${-pi/2}" xyz="0 0 0"/>
       <parent link="camera_${robot_name}_link"/>

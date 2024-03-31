@@ -1,5 +1,4 @@
 <?xml version="1.0" ?>
-<!-- Various useful macros -->
 <robot name="xacro_properties" xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:macro name="inertial_cuboid_with_pose" params="mass x y z *origin">
@@ -52,7 +51,6 @@
             h_samples h_res h_min_angle h_max_angle
             v_samples:=1 v_res:=1 v_min_angle:=0 v_max_angle:=0
             r_min r_max r_res *plugin">
-    <!-- Classic -->
     <xacro:if value="${hardware_type == 'gz_classic'}">
       <sensor type="ray" name="${sensor_name}">
         <update_rate>${update_rate}</update_rate>
@@ -79,7 +77,6 @@
             <resolution>${r_res}</resolution>
           </range>
         </ray>
-        <!-- Noise is currently disabled -->
         <noise>
           <type>gaussian</type>
           <mean>0.0</mean>
@@ -89,7 +86,6 @@
       </sensor>
     </xacro:if>
 
-    <!-- Ignition -->
     <xacro:if value="${hardware_type == 'gz_ignition'}">
       <sensor name="${sensor_name}" type="gpu_lidar">
         <update_rate>${update_rate}</update_rate>
@@ -120,20 +116,17 @@
     </xacro:if>
   </xacro:macro>
 
-  <!-- Conversion macros -->
   <xacro:property name="cm2m"    value="${1/100.0}"/>
   <xacro:property name="mm2m"    value="${1/1000.0}"/>
   <xacro:property name="in2m"    value="0.0254"/>
   <xacro:property name="deg2rad" value="${pi/180.0}"/>
 
-  <!-- Material colors -->
   <xacro:property name="material_black">
     <material name="black">
       <color rgba="0.1 0.1 0.1 1"/>
     </material>
   </xacro:property>
 
-  <!-- Material macros -->
   <xacro:macro name="material_black">
     <visual>
       <material>

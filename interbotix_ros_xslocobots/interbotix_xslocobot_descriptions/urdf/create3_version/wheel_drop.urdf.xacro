@@ -30,16 +30,12 @@
     <xacro:insert_block name="origin"/>
     <axis xyz="0 1 0"/>
     <limit lower="0" upper="${detection_threshold}" effort="0" velocity="0"/>
-    <!-- Damping is big enough to not make the body oscillate too much when it's lifted up -->
     <dynamics damping="${spring_damping}" friction="${spring_friction}"/>
   </joint>
 
-  <!-- Gazebo parameters to simulate a spring -->
   <gazebo reference="${wd_joint_name}">
     <provideFeedback>false</provideFeedback>
     <implicitSpringDamper>true</implicitSpringDamper>
-    <!-- This value should be high enough so that the wheeldrop can
-          retract with the robot's weight (mass * gravity) -->
     <springStiffness>${spring_stiffness_nm}</springStiffness>
     <springReference>${detection_threshold}</springReference>
   </gazebo>

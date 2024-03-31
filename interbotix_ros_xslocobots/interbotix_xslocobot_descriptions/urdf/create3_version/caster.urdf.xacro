@@ -17,7 +17,6 @@
       <geometry>
         <sphere radius="${radius}"/>
       </geometry>
-      <!-- Give black color to caster in Rviz -->
       <xacro:insert_block name="material_black"/>
     </visual>
     <collision>
